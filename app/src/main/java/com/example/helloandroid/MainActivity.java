@@ -33,6 +33,44 @@ public class MainActivity extends AppCompatActivity {
             Intent res = result.getData();
             Log.i("Test", res.getStringExtra("return"));
         });
+
+        Log.i("Main", "onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Main", "onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("Main", "onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Main", "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Main", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Main", "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Main", "onDestroy");
     }
 
     public void gotoTest1(View view) {

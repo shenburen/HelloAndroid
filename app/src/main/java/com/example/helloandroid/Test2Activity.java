@@ -28,6 +28,44 @@ public class Test2Activity extends AppCompatActivity {
         Intent intent = getIntent();
         Log.i("Test", intent.getStringExtra("test1"));
         Log.i("Test", intent.getStringExtra("test2"));
+
+        Log.i("Test2", "onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Test2", "onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("Test2", "onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Test2", "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Test2", "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Test2", "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Test2", "onDestroy");
     }
 
     public void returnMain(View view) {
