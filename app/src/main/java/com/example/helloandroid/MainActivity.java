@@ -87,4 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
         launcher.launch(messageIntent);
     }
+
+    public void gotoWeb(View view) {
+        Intent messageIntent = new Intent(this, WebActivity.class);
+        startActivity(messageIntent);
+    }
 }

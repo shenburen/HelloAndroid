@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <button onclick="callAndroid()">调用Java</button>
+      <span id="change-text"></span>
+    </div>
+
+    <script>
+      window.onload = () => {
+        let text = document.querySelector("#change-text");
+        text.innerHTML = "Hello World!!!";
+      };
+
+      function callAndroid() {
+        AndroidBridge.showToast("Hello from WebView!");
+      }
+
+      function fromAndroid(msg) {
+        let text = document.querySelector("#change-text");
+        text.innerHTML = msg;
+      }
+    </script>
+  </body>
+</html>
