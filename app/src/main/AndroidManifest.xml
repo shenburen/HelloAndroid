@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloAndroid">
         <activity
-            android:name=".WebActivity"
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Test1Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Test2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".WebActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,12 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Test1Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Test2Activity"
-            android:exported="false" />
     </application>
 
 </manifest>

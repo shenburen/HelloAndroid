@@ -17,7 +17,7 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
-    public void showToast(String msg) {
+    public void callAndroid(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
 
         // 回调网页

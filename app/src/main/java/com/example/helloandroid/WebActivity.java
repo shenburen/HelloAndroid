@@ -1,10 +1,14 @@
 package com.example.helloandroid;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -25,13 +29,26 @@ public class WebActivity extends AppCompatActivity {
             return insets;
         });
 
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (webView.canGoBack()) {
+                    webView.evaluateJavascript("javascript:FromAndroid()", null);
+                } else {
+                    setEnabled(false);
+                }
+            }
+        });
+
         webView = findViewById(R.id.webview);
-        webView.getSettings().setJavaScriptEnabled(true);
+
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setAllowFileAccess(true);
+        settings.setAllowFileAccessFromFileURLs(true);
+        settings.setAllowUniversalAccessFromFileURLs(true);
+
         webView.addJavascriptInterface(new WebAppInterface(this, webView), "AndroidBridge");
         webView.loadUrl("file:///android_asset/index.html");
-    }
-
-    public void callJs(View view) {
-        webView.evaluateJavascript("javascript:fromAndroid('申志强啦啦啦啦')", null);
     }
 }
